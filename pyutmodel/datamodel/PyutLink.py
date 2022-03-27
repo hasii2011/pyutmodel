@@ -15,7 +15,8 @@ from pyutmodel.datamodel.PyutLinkType import PyutLinkType
 if TYPE_CHECKING:
     from pyutmodel.datamodel.PyutClass import PyutClass
     from pyutmodel.datamodel.PyutNote import PyutNote
-    
+    from pyutmodel.datamodel.PyutLinkedObject import PyutLinkedObject
+
 
 class PyutLink(PyutObject):
     """
@@ -32,7 +33,8 @@ class PyutLink(PyutObject):
 
     # noinspection PyUnresolvedReferences
     def __init__(self, name="", linkType: PyutLinkType = PyutLinkType.INHERITANCE,
-                 cardSrc:      str = "", cardDest: str = "",
+                 cardSrc:      str = "",
+                 cardDest:     str = "",
                  bidir:        bool = False,
                  source:       'PyutClass' = None,
                  destination:  Union['PyutClass', 'PyutNote'] = None):
@@ -49,16 +51,14 @@ class PyutLink(PyutObject):
         """
         super().__init__(name)
         self.logger: Logger       = getLogger(__name__)
-        self._type:  LinkType = linkType
+        self._type:  PyutLinkType = linkType
 
         self._sourceCardinality:      str  = cardSrc
         self._destinationCardinality: str  = cardDest
         self._bidirectional:          bool = bidir
 
-        from pyutmodel.datamodel.PyutLinkedObject import PyutLinkedObject
-
-        self._src:  Optional[PyutLinkedObject] = source
-        self._dest: Optional[PyutLinkedObject] = destination
+        self._src:  Optional['PyutLinkedObject'] = source
+        self._dest: Optional['PyutLinkedObject'] = destination
 
     def _getSourceCardinality(self) -> str:
         """
