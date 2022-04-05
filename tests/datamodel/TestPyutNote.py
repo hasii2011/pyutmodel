@@ -7,7 +7,7 @@ from logging import getLogger
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
-from pyutmodel.datamodel.PyutNote import PyutNote
+from pyutmodel.PyutNote import PyutNote
 from tests.TestBase import TestBase
 
 

@@ -2,11 +2,11 @@
 from typing import List
 from typing import cast
 
-from pyutmodel.datamodel.PyutClassCommon import PyutClassCommon
-from pyutmodel.datamodel.PyutDisplayParameters import PyutDisplayParameters
-from pyutmodel.datamodel.PyutInterface import PyutInterface
-from pyutmodel.datamodel.PyutLinkedObject import PyutLinkedObject
-from pyutmodel.datamodel.PyutStereotype import PyutStereotype
+from pyutmodel.PyutClassCommon import PyutClassCommon
+from pyutmodel.PyutDisplayParameters import PyutDisplayParameters
+from pyutmodel.PyutInterface import PyutInterface
+from pyutmodel.PyutLinkedObject import PyutLinkedObject
+from pyutmodel.PyutStereotype import PyutStereotype
 
 
 class PyutClass(PyutClassCommon, PyutLinkedObject):

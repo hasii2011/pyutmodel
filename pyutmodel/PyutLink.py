@@ -9,13 +9,13 @@ from logging import getLogger
 # noinspection PyPackageRequirements
 from deprecated import deprecated
 
-from pyutmodel.datamodel.PyutObject import PyutObject
-from pyutmodel.datamodel.PyutLinkType import PyutLinkType
+from pyutmodel.PyutObject import PyutObject
+from pyutmodel.PyutLinkType import PyutLinkType
 
 if TYPE_CHECKING:
-    from pyutmodel.datamodel.PyutClass import PyutClass
-    from pyutmodel.datamodel.PyutNote import PyutNote
-    from pyutmodel.datamodel.PyutLinkedObject import PyutLinkedObject
+    from pyutmodel.PyutClass import PyutClass
+    from pyutmodel.PyutNote import PyutNote
+    from pyutmodel.PyutLinkedObject import PyutLinkedObject
 
 
 class PyutLink(PyutObject):

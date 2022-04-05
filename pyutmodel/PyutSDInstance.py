@@ -6,7 +6,7 @@ from deprecated import deprecated
 
 from enum import Enum
 
-from pyutmodel.datamodel.PyutObject import PyutObject
+from pyutmodel.PyutObject import PyutObject
 
 
 class PyutSDInstanceType(Enum):

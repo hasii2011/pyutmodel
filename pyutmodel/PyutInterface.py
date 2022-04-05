@@ -2,10 +2,10 @@
 from logging import Logger
 from logging import getLogger
 
-from pyutmodel.datamodel.ModelTypes import ClassName
-from pyutmodel.datamodel.ModelTypes import Implementors
-from pyutmodel.datamodel.PyutClassCommon import PyutClassCommon
-from pyutmodel.datamodel.PyutObject import PyutObject
+from pyutmodel.ModelTypes import ClassName
+from pyutmodel.ModelTypes import Implementors
+from pyutmodel.PyutClassCommon import PyutClassCommon
+from pyutmodel.PyutObject import PyutObject
 
 
 class PyutInterface(PyutClassCommon, PyutObject):

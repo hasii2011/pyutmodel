@@ -8,12 +8,12 @@ from logging import getLogger
 # noinspection PyPackageRequirements
 from deprecated import deprecated
 
-from pyutmodel.datamodel.DisplayMethodParameters import DisplayMethodParameters
-from pyutmodel.datamodel.PyutModifier import PyutModifier
-from pyutmodel.datamodel.PyutObject import PyutObject
-from pyutmodel.datamodel.PyutParameter import PyutParameter
-from pyutmodel.datamodel.PyutType import PyutType
-from pyutmodel.datamodel.PyutVisibilityEnum import PyutVisibilityEnum
+from pyutmodel.DisplayMethodParameters import DisplayMethodParameters
+from pyutmodel.PyutModifier import PyutModifier
+from pyutmodel.PyutObject import PyutObject
+from pyutmodel.PyutParameter import PyutParameter
+from pyutmodel.PyutType import PyutType
+from pyutmodel.PyutVisibilityEnum import PyutVisibilityEnum
 
 SourceCode     = NewType('SourceCode',     List[str])
 PyutModifiers  = NewType('PyutModifiers',  List[PyutModifier])

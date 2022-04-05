@@ -1,6 +1,6 @@
 
 
-from pyutmodel.datamodel.PyutLinkedObject import PyutLinkedObject
+from pyutmodel.PyutLinkedObject import PyutLinkedObject
 
 
 class PyutActor(PyutLinkedObject):

@@ -9,7 +9,7 @@ from unittest import TestSuite
 
 from unittest import main as unitTestMain
 
-from pyutmodel.datamodel.PyutVisibilityEnum import PyutVisibilityEnum
+from pyutmodel.PyutVisibilityEnum import PyutVisibilityEnum
 from tests.TestBase import TestBase
 
 

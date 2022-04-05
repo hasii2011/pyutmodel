@@ -7,8 +7,8 @@ from logging import getLogger
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
-from pyutmodel.datamodel.PyutLink import PyutLink
-from pyutmodel.datamodel.PyutLinkType import PyutLinkType
+from pyutmodel.PyutLink import PyutLink
+from pyutmodel.PyutLinkType import PyutLinkType
 from tests.TestBase import TestBase
 
 

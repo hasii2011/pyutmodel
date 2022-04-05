@@ -2,9 +2,9 @@
 # noinspection PyPackageRequirements
 from deprecated import deprecated
 
-from pyutmodel.datamodel.PyutParameter import PyutParameter
-from pyutmodel.datamodel.PyutType import PyutType
-from pyutmodel.datamodel.PyutVisibilityEnum import PyutVisibilityEnum
+from pyutmodel.PyutParameter import PyutParameter
+from pyutmodel.PyutType import PyutType
+from pyutmodel.PyutVisibilityEnum import PyutVisibilityEnum
 
 
 class PyutField(PyutParameter):

@@ -7,12 +7,12 @@ from logging import getLogger
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
-from pyutmodel.datamodel.DisplayMethodParameters import DisplayMethodParameters
-from pyutmodel.datamodel.PyutMethod import PyutMethod
-from pyutmodel.datamodel.PyutMethod import PyutParameters
-from pyutmodel.datamodel.PyutMethod import SourceCode
-from pyutmodel.datamodel.PyutParameter import PyutParameter
-from pyutmodel.datamodel.PyutType import PyutType
+from pyutmodel.DisplayMethodParameters import DisplayMethodParameters
+from pyutmodel.PyutMethod import PyutMethod
+from pyutmodel.PyutMethod import PyutParameters
+from pyutmodel.PyutMethod import SourceCode
+from pyutmodel.PyutParameter import PyutParameter
+from pyutmodel.PyutType import PyutType
 
 from tests.TestBase import TestBase
 

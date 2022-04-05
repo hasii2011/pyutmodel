@@ -1,4 +1,4 @@
-from pyutmodel.datamodel.PyutObject import PyutObject
+from pyutmodel.PyutObject import PyutObject
 
 
 class PyutText(PyutObject):
