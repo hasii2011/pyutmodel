@@ -10,3 +10,4 @@ mypy-extensions~= 0.4.3
 types-Deprecated~=1.2.5
 types-setuptools~=57.4.9
 typing_extensions~=4.1.1
+Deprecated~=1.2.13
