@@ -14,7 +14,7 @@ setup(
     description='External Pyut Data Model',
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/hasii2011/pkgversions",
+    url="https://github.com/hasii2011/pyutmodel",
     packages=[
         'pyutmodel',
     ],
