@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="pyutmodel",
-    version="1.0.0",
+    version="1.0.1",
     author_email='Humberto.A.Sanchez.II@gmail.com',
     description='External Pyut Data Model',
     long_description=README,

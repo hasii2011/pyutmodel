@@ -2,6 +2,7 @@
 from logging import Logger
 from logging import getLogger
 
+# noinspection PyPackageRequirements
 from deprecated import deprecated
 
 from enum import Enum
