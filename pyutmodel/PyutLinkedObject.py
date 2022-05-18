@@ -2,6 +2,7 @@
 from typing import List
 
 from pyutmodel.ModelTypes import PyutLinks
+
 from pyutmodel.PyutLink import PyutLink
 from pyutmodel.PyutObject import PyutObject
 

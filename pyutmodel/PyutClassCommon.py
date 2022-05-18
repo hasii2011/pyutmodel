@@ -122,3 +122,4 @@ class PyutClassCommon:
             value: Indicates if we should display the fields
         """
         self._showFields = value
+
