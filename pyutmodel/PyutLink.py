@@ -60,7 +60,8 @@ class PyutLink(PyutObject):
         self._src:  Optional['PyutLinkedObject'] = source
         self._dest: Optional['PyutLinkedObject'] = destination
 
-    def _getSourceCardinality(self) -> str:
+    @property
+    def sourceCardinality(self) -> str:
         """
         Return a string representing source's cardinality
 
@@ -68,7 +69,8 @@ class PyutLink(PyutObject):
         """
         return self._sourceCardinality
 
-    def _setSourceCardinality(self, cardSrc: str):
+    @sourceCardinality.setter
+    def sourceCardinality(self, cardSrc: str):
         """
         Update the source cardinality.
 
@@ -78,7 +80,8 @@ class PyutLink(PyutObject):
         """
         self._sourceCardinality = cardSrc
 
-    def _getDestinationCardinality(self):
+    @property
+    def destinationCardinality(self):
         """
         Return a string representing cardinality destination.
 
@@ -86,7 +89,8 @@ class PyutLink(PyutObject):
         """
         return self._destinationCardinality
 
-    def _setDestinationCardinality(self, cardDest: str):
+    @destinationCardinality.setter
+    def destinationCardinality(self, cardDest: str):
         """
         Updating destination cardinality.
 
@@ -94,9 +98,6 @@ class PyutLink(PyutObject):
             cardDest
         """
         self._destinationCardinality = cardDest
-
-    sourceCardinality      = property(_getSourceCardinality,      _setSourceCardinality)
-    destinationCardinality = property(_getDestinationCardinality, _setDestinationCardinality)
 
     def getSource(self):
         """
