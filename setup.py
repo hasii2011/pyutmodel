@@ -25,5 +25,5 @@ setup(
     package_data={
         'pyutmodel': ['py.typed'],
     },
-    install_requires=['Deprecated'],
+    install_requires=['Deprecated==1.2.13'],
 )
