@@ -2,6 +2,8 @@
 from typing import List
 from typing import cast
 
+from deprecated import deprecated
+
 from pyutmodel.PyutClassCommon import PyutClassCommon
 from pyutmodel.PyutDisplayParameters import PyutDisplayParameters
 from pyutmodel.PyutInterface import PyutInterface
@@ -40,7 +42,7 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
         self._stereotype: PyutStereotype = cast (PyutStereotype, None)
 
         # Display properties
-        self._showStereotype: bool = True
+        self._displayStereotype: bool = True
         self._showMethods:    bool = True
         self._showFields:     bool = True
 
@@ -67,22 +69,47 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
     def addInterface(self, pyutInterface: PyutInterface):
         self._interfaces.append(pyutInterface)
 
-    def getStereotype(self):
+    @property
+    def stereotype(self) -> PyutStereotype:
         """
-        Return the stereotype used, or None if there's no stereotype.
+        Return the stereotype associated with this class
 
-        @since 1.0
-        @author Laurent Burgbacher <lb@alawa.ch>
+        Returns:  None if there's no stereotype.
         """
         return self._stereotype
 
+    @stereotype.setter
+    def stereotype(self, newValue: PyutStereotype):
+        self._stereotype = newValue
+
+    @property
+    def displayStereoType(self) -> bool:
+        """
+                Returns:   True if the UI should display the stereotype
+        """
+        return self._displayStereotype
+
+    @displayStereoType.setter
+    def displayStereoType(self, newValue: bool):
+        """
+        Indicate whether the UI should display the stereotype
+        Args:
+            newValue:  'True' do display on the UI, else 'False'
+        """
+        self._displayStereotype = newValue
+
+    @deprecated(version='1.0.3', reason='Use properties they are better')
+    def getStereotype(self):
+        """
+        Return the stereotype used, or None if there's no stereotype.
+        """
+        return self._stereotype
+
+    @deprecated(version='1.0.3', reason='Use properties they are better')
     def setStereotype(self, stereotype):
         """
         Replace the actual stereotype by the one given.
 
-        @param stereotype  String or Unicode or PyutStereotype
-        @since 1.0
-        @author Laurent Burgbacher <lb@alawa.ch>
         """
         # Python 3 update
         # if type(stereotype) == StringType or type(stereotype) == UnicodeType:
@@ -90,25 +117,24 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
             stereotype = PyutStereotype(stereotype)
         self._stereotype = stereotype
 
+    @deprecated(version='1.0.3', reason='Use displayStereoType property it is better')
     def getShowStereotype(self):
         """
         Return True if we must display the stereotype
 
         @return boolean indicating if we must display the stereotype
-        @since 1.1.1.2
-        @author C.Dutoit <dutoitc@hotmail.com>
         """
-        return self._showStereotype
+        return self._displayStereotype
 
+    @deprecated(version='1.0.3', reason='Use displayStereoType property it is better')
     def setShowStereotype(self, theNewValue: bool):
         """
         Define the showStereotype property
 
         @param theNewValue : boolean indicating if we must display the stereotype
-        @since 1.1.1.2
-        @author C.Dutoit <dutoitc@hotmail.com>
+
         """
-        self._showStereotype = theNewValue
+        self._displayStereotype = theNewValue
 
     def __getstate__(self):
         """
