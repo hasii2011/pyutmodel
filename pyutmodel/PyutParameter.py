@@ -1,7 +1,7 @@
 
+from typing import Optional
 from typing import Any
 
-# noinspection PyPackageRequirements
 from deprecated import deprecated
 
 from logging import Logger
@@ -17,7 +17,7 @@ class PyutParameter(PyutObject):
 
     DEFAULT_PARAMETER_NAME: str = 'param'
 
-    def __init__(self, name: str = DEFAULT_PARAMETER_NAME, parameterType: PyutType = PyutType(""), defaultValue: Any = None):
+    def __init__(self, name: str = DEFAULT_PARAMETER_NAME, parameterType: PyutType = PyutType(""), defaultValue: Optional[Any] = None):
         """
 
         Args:

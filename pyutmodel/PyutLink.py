@@ -36,10 +36,10 @@ class PyutLink(PyutObject):
                  cardSrc:      str = "",
                  cardDest:     str = "",
                  bidir:        bool = False,
-                 source:       'PyutClass' = None,
-                 destination:  Union['PyutClass', 'PyutNote'] = None):
+                 source:       Optional['PyutClass']                    = None,
+                 destination:  Optional[Union['PyutClass', 'PyutNote']] = None):
         """
-
+        
         Args:
             name:        The link name
             linkType:    The enum representing the link type
