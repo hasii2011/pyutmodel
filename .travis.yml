@@ -1,7 +1,4 @@
 
-# os: osx
-
-# osx_image: xcode11.2
 notifications:
   email:
     recipients:
@@ -9,12 +6,14 @@ notifications:
     on_success: change # default: change
     on_failure: always # default: always
 
+dist: jammy
+
 language: python
 
-cache: pip
-
 python:
-  - "3.9.1"
+  - "3.10"
+
+cache: pip
 
 # command to install dependencies
 install:

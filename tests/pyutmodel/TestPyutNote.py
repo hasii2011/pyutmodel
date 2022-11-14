@@ -34,12 +34,9 @@ class TestPyutNote(TestBase):
         preferences file
         """
 
-        expectedContent: str = 'Note text'
-
-        pyutNote: PyutNote = PyutNote(noteText=expectedContent)
-
-        expectedContent: str = 'Note text'
-        actualContent:   str = pyutNote.content
+        expectedContent: str      = 'Note text'
+        pyutNote:        PyutNote = PyutNote(noteText=expectedContent)
+        actualContent:   str      = pyutNote.content
 
         self.assertEqual(expectedContent, actualContent, 'Did not use preferences note content')
 

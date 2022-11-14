@@ -19,10 +19,6 @@ from tests.TestBase import TestBase
 
 class TestPyutMethod(TestBase):
     """
-    You need to change the name of this class to Test`xxxx`
-    Where `xxxx' is the name of the class that you want to test.
-
-    See existing tests for more information.
     """
     clsLogger: Logger = cast(Logger, None)
 
@@ -75,7 +71,7 @@ class TestPyutMethod(TestBase):
         pyutMethod:     PyutMethod = self._pyutMethod
         pyutMethod.returnType = PyutType('float')
 
-        pyutMethod.parameters = self._makeParameters
+        pyutMethod.parameters = self._makeParameters()
         PyutMethod.setStringMode(DisplayMethodParameters.WITHOUT_PARAMETERS)
 
         defaultName: str = 'methodName'

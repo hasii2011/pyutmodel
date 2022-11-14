@@ -15,13 +15,10 @@ from tests.TestBase import TestBase
 
 
 class TestPyutType(TestBase):
-    """
-    """
     clsLogger: Logger = cast(Logger, None)
 
     @classmethod
     def setUpClass(cls):
-        """"""
         TestBase.setUpLogging()
         TestPyutType.clsLogger = getLogger(__name__)
 
@@ -38,8 +35,8 @@ class TestPyutType(TestBase):
         self.assertTrue(a.value == b.value)
         try:
             # noinspection PyUnresolvedReferences
-            a.setName("Salut")
-        except AttributeError as ae:
+            a.value = "Salut"
+        except NotImplementedError as ae:
             self.logger.info(f'Expected error: {ae}')
             pass    # We should get this error
         else:

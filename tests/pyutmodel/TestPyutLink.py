@@ -34,41 +34,15 @@ class TestPyutLink(TestBase):
     def tearDown(self):
         pass
 
-    def testLegacyLinkType(self):
+    def testValidLinkType(self):
 
-        legacyPyutLink: PyutLink = PyutLink(name='LegacyPyutLink')
-        legacyValue:    int      = PyutLinkType.NOTELINK.value
+        pyutLink: PyutLink = PyutLink(name='ValidPyutLink')
+        linkType: PyutLinkType = PyutLinkType.COMPOSITION
 
-        # noinspection PyTypeChecker
-        legacyPyutLink.setType(legacyValue)
-
-        expectedLinkType: PyutLinkType = PyutLinkType.NOTELINK
-        actualLinkType:   PyutLinkType = legacyPyutLink.getType()
-
-        self.assertEqual(expectedLinkType, actualLinkType, 'Incorrect legacy support')
-
-    def testLegacyInvalidLinkType(self):
-
-        legacyPyutLink: PyutLink = PyutLink(name='InvalidLegacyPyutLink')
-        legacyValue:    int      = PyutLinkType.NOTELINK.value + 99
-
-        # noinspection PyTypeChecker
-        legacyPyutLink.setType(legacyValue)
-
-        expectedLinkType: PyutLinkType = PyutLinkType.INHERITANCE
-        actualLinkType:   PyutLinkType = legacyPyutLink.getType()
-
-        self.assertEqual(expectedLinkType, actualLinkType, 'Incorrect legacy invalid type support')
-
-    def testLegacyValidLinkType(self):
-
-        legacyPyutLink: PyutLink = PyutLink(name='ValidLegacyPyutLink')
-        legacyValue:    PyutLinkType = PyutLinkType.COMPOSITION
-
-        legacyPyutLink.setType(legacyValue)
+        pyutLink.linkType = linkType
 
         expectedLinkType: PyutLinkType = PyutLinkType.COMPOSITION
-        actualLinkType:   PyutLinkType = legacyPyutLink.getType()
+        actualLinkType:   PyutLinkType = pyutLink.linkType
 
         self.assertEqual(expectedLinkType, actualLinkType, 'Incorrect  valid legacy type support')
 

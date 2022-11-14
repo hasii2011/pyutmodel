@@ -21,7 +21,9 @@ class PyutField(PyutParameter):
         yourField = PyutField('anotherField', 'str', '', PyutVisibilityEnum.Private)
     """
 
-    def __init__(self, name: str = "", fieldType: PyutType = PyutType(''), defaultValue: str = None,
+    def __init__(self, name: str = "",
+                 fieldType: PyutType = PyutType(''),
+                 defaultValue: str = '',
                  visibility: PyutVisibilityEnum = PyutVisibilityEnum.PRIVATE):
         """
 

@@ -27,9 +27,9 @@ class PyutSDMessage(PyutLink):
 
         self.logger.debug(f"PyutSDMessage.__init__ {srcTime}, {dstTime}")
         super().__init__(source=src, destination=dst)
-        self._message = message
-        self._srcTime = srcTime
-        self._dstTime = dstTime
+        self._message   = message
+        self._srcTime   = srcTime
+        self._dstTime   = dstTime
         self._oglObject = oglObject
 
     def setOglObject(self, obj):
@@ -105,17 +105,19 @@ class PyutSDMessage(PyutLink):
 
     def getSrcID(self):
         """
-        Return Y position on source
-        @author C.Dutoit
+        TODO:  There is a problem;  Not sure this method is valid
+
+        Returns:    Y position on source
         """
-        return self._src.getId()
+        return self._src.getId()        # type: ignore
 
     def getDstID(self):
         """
-        Return Y position on source
-        @author C.Dutoit
+        TODO:  There is a problem;  Not sure this method is valid
+
+        Returns:    Y position on source
         """
-        return self._dest.getId()
+        return self._dest.getId()       # type: ignore
 
     def getSource(self):
         """
