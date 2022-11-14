@@ -1,0 +1,24 @@
+
+version: '2.1'
+
+orbs:
+  python: circleci/python@2.1.1
+
+workflows:
+  main:
+    jobs:
+      - build
+
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.10
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+            name: run tests
+            command: | 
+              scripts/runtests.sh
