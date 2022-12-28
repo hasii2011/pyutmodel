@@ -1,19 +1,41 @@
+from enum import Enum
 
 
-class PyutStereotype:
+class PyutStereotype(Enum):
+    """
+    Class Stereotype
+    """
+    AUXILIARY            = 'auxiliary'
+    FOCUS                = 'focus'
+    IMPLEMENTATION_CLASS = 'implementationClass'
+    METACLASS            = 'metaclass'
+    TYPE                 = 'type'
+    UTILITY              = 'utility'
 
-    def __init__(self, name=""):
+    @classmethod
+    def toEnum(cls, strValue: str) -> 'PyutStereotype':
         """
-        Stereotype for a class or a link
-
+        Converts the input string to the appropriate stereotype
         Args:
-            name: for the type
+            strValue:   A string value
+        Returns:  The stereotype enumeration
         """
-        self._name: str = name
+        canonicalStr: str            = strValue.strip(' ').lower()
+        stereotype:   PyutStereotype = PyutStereotype.TYPE
+        match canonicalStr:
+            case PyutStereotype.AUXILIARY.value:
+                stereotype = PyutStereotype.AUXILIARY
+            case PyutStereotype.FOCUS.value:
+                stereotype = PyutStereotype.FOCUS
+            case PyutStereotype.IMPLEMENTATION_CLASS.value:
+                stereotype = PyutStereotype.IMPLEMENTATION_CLASS
+            case PyutStereotype.METACLASS.value:
+                stereotype = PyutStereotype.METACLASS
+            case PyutStereotype.TYPE.value:
+                stereotype = PyutStereotype.TYPE
+            case PyutStereotype.UTILITY.value:
+                stereotype = PyutStereotype.UTILITY
+            case _:
+                print(f'Warning: did not recognize this  stereotype: {canonicalStr}')
 
-    @property
-    def name(self) -> str:
-        return self._name
-
-    def __str__(self):
-        return f"<< {self._name} >>"
+        return stereotype

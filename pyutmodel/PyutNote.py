@@ -28,3 +28,9 @@ class PyutNote(PyutLinkedObject):
     @content.setter
     def content(self, newContent: str):
         self._content = newContent
+
+    def __str__(self) -> str:
+        return self.content
+
+    def __repr__(self) -> str:
+        return f'model ID: {self.id} {self.content[:6]}'

@@ -151,13 +151,13 @@ class PyutSDMessage(PyutLink):
 
     def setSource(self, src=None, srcTime=-1):
         """
-        Define the source
-        @param src : Source object
-        @param srcTime : Time on the source
-        @author C.Dutoit
+
+        Args:
+            src:    Source object
+            srcTime: ???
+
         """
         if src is not None:
-            # self._src = src
             PyutLink.setSource(self, src)
         if srcTime != -1:
             self.logger.debug(f"PyutSDMessage - Setting srcTime to: {srcTime}")
