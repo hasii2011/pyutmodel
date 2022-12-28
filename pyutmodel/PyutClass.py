@@ -43,8 +43,6 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
 
         # Display properties
         self._displayStereotype: bool = True
-        self._showMethods:    bool = True
-        self._showFields:     bool = True
 
         self._displayParameters: PyutDisplayParameters = PyutDisplayParameters.UNSPECIFIED
 

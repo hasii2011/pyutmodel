@@ -9,7 +9,9 @@ class PyutClassCommon:
 
     def __init__(self):
 
-        self._description: str = ""
+        self._description: str  = ""
+        self._showMethods: bool = True
+        self._showFields:  bool = True
 
         self._fields:  List[PyutField]  = []
         self._methods: List[PyutMethod] = []
