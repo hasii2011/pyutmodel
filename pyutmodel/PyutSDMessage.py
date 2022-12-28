@@ -158,7 +158,8 @@ class PyutSDMessage(PyutLink):
 
         """
         if src is not None:
-            PyutLink.setSource(self, src)
+            # PyutLink.setSource(self, src)
+            super().setSource(src)
         if srcTime != -1:
             self.logger.debug(f"PyutSDMessage - Setting srcTime to: {srcTime}")
             self.setSrcTime(srcTime)
