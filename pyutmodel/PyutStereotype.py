@@ -3,7 +3,8 @@ from enum import Enum
 
 class PyutStereotype(Enum):
     """
-    Class Stereotype
+    Stereotype Enumeration
+    https://www.ibm.com/docs/en/rational-soft-arch/9.5?topic=elements-uml-model-element-stereotypes
     """
     AUXILIARY            = 'auxiliary'
     FOCUS                = 'focus'
@@ -11,7 +12,7 @@ class PyutStereotype(Enum):
     METACLASS            = 'metaclass'
     TYPE                 = 'type'
     UTILITY              = 'utility'
-    NO_STEREOTYPE        = 'No Stereotype'
+    NO_STEREOTYPE        = 'noStereotype'
 
     @classmethod
     def toEnum(cls, strValue: str) -> 'PyutStereotype':
@@ -28,7 +29,7 @@ class PyutStereotype(Enum):
         if strValue is None:
             canonicalStr: str = ''  # Force None
         else:
-            canonicalStr = strValue.strip(' ').lower()
+            canonicalStr = strValue.strip(' ')  # I want exact match
 
         match canonicalStr:
             case PyutStereotype.AUXILIARY.value:
@@ -43,9 +44,11 @@ class PyutStereotype(Enum):
                 stereotype = PyutStereotype.TYPE
             case PyutStereotype.UTILITY.value:
                 stereotype = PyutStereotype.UTILITY
+            case PyutStereotype.NO_STEREOTYPE.value:
+                stereotype = PyutStereotype.NO_STEREOTYPE
             case '':
                 pass    # No stereotype
             case _:
-                print(f'Warning: did not recognize this  stereotype: {canonicalStr}')
+                print(f'Warning: did not recognize this  stereotype string: `{canonicalStr}`')
 
         return stereotype

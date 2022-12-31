@@ -11,7 +11,6 @@ from pyutmodel.PyutStereotype import PyutStereotype
 from tests.TestBase import TestBase
 
 
-
 class TestPyutStereotype(TestBase):
     """
     """
@@ -32,6 +31,16 @@ class TestPyutStereotype(TestBase):
         pyutStereotype: PyutStereotype = PyutStereotype.toEnum(PyutStereotype.TYPE.value)
 
         self.assertEqual(PyutStereotype.TYPE, pyutStereotype, 'Basic conversion failing')
+
+    def testBasicNoStereotype(self):
+        pyutStereotype: PyutStereotype = PyutStereotype.toEnum(PyutStereotype.NO_STEREOTYPE.value)
+
+        self.assertEqual(PyutStereotype.NO_STEREOTYPE, pyutStereotype, 'Basic conversion failing')
+
+    def testBasicNoImplementationClass(self):
+        pyutStereotype: PyutStereotype = PyutStereotype.toEnum(PyutStereotype.IMPLEMENTATION_CLASS.value)
+
+        self.assertEqual(PyutStereotype.IMPLEMENTATION_CLASS, pyutStereotype, 'Basic conversion failing')
 
     def testEmptyString(self):
         pyutStereotype: PyutStereotype = PyutStereotype.toEnum('')
