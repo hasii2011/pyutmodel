@@ -39,7 +39,7 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
         PyutLinkedObject.__init__(self, name)
         PyutClassCommon.__init__(self)
 
-        self._stereotype: PyutStereotype = cast (PyutStereotype, None)
+        self._stereotype: PyutStereotype = PyutStereotype.NO_STEREOTYPE
 
         # Display properties
         self._displayStereotype: bool = True
