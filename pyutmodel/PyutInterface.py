@@ -1,6 +1,8 @@
 
 from logging import Logger
 from logging import getLogger
+from typing import List
+from typing import NewType
 
 from pyutmodel.ModelTypes import ClassName
 from pyutmodel.ModelTypes import Implementors
@@ -43,3 +45,6 @@ class PyutInterface(PyutClassCommon, PyutObject):
             methodsStr = f'{methodsStr} {method} '
 
         return f'PyutInterface- - {self._name} {methodsStr}'
+
+
+PyutInterfaces = NewType('PyutInterfaces', List[PyutInterface])

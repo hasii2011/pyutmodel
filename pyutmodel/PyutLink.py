@@ -1,4 +1,6 @@
 
+from typing import List
+from typing import NewType
 from typing import Optional
 from typing import Union
 from typing import TYPE_CHECKING
@@ -16,6 +18,7 @@ if TYPE_CHECKING:
     from pyutmodel.PyutClass import PyutClass
     from pyutmodel.PyutNote import PyutNote
     from pyutmodel.PyutLinkedObject import PyutLinkedObject
+
 
 
 class PyutLink(PyutObject):
@@ -192,3 +195,6 @@ class PyutLink(PyutObject):
              string representing link
         """
         return f'("{self.name}") links from {self._src} to {self._dest}'
+
+
+PyutLinks      = NewType('PyutLinks', List[PyutLink])

@@ -1,10 +1,13 @@
 
 from typing import List
 
-from pyutmodel.ModelTypes import PyutLinks
+from deprecated import deprecated
 
 from pyutmodel.PyutLink import PyutLink
+from pyutmodel.PyutLink import PyutLinks
+
 from pyutmodel.PyutObject import PyutObject
+
 
 
 class PyutLinkedObject(PyutObject):
@@ -14,7 +17,7 @@ class PyutLinkedObject(PyutObject):
     classes that may be interconnected (classes for examples) should inherit
     this class to have all links support.
     """
-    def __init__(self, name=""):
+    def __init__(self, name: str=""):
         """
 
         Args:
@@ -25,6 +28,49 @@ class PyutLinkedObject(PyutObject):
         self._links:    PyutLinks              = PyutLinks([])
         self._parents:  List[PyutLinkedObject] = []     # Allows for multiple inheritance
 
+    @property
+    def links(self) -> PyutLinks:
+        """
+        This is not a copy, but the original one. Any change made to it is
+        directly made on the class.
+
+        Returns: a list of the links.
+        """
+        return self._links
+
+    @links.setter
+    def links(self, links: PyutLinks):
+        """
+        Replace the actual links by those given in the list.
+        The methods passed are not copied, but used directly.
+
+        Args:
+            links:
+        """
+        self._links = links
+
+    @property
+    def parents(self) -> List['PyutLinkedObject']:
+        """
+        This is not a copy, but the original one. Any change made to it is
+        directly made on the class.
+
+        Returns:          Return a list of the parents.
+        """
+        return self._parents
+
+    @parents.setter
+    def parents(self, parents: List['PyutLinkedObject']):
+        """
+        Replace the actual parents by those given in the list.
+        The methods passed are not copied, but used directly.
+
+        Args:
+            parents:
+        """
+        self._parents = parents
+
+    @deprecated(reason='Use the links property')
     def getLinks(self) -> PyutLinks:
         """
         This is not a copy, but the original one. Any change made to it is
@@ -34,6 +80,7 @@ class PyutLinkedObject(PyutObject):
         """
         return self._links
 
+    @deprecated(reason='Use the links property')
     def setLinks(self, links: PyutLinks):
         """
         Replace the actual links by those given in the list.
@@ -53,7 +100,8 @@ class PyutLinkedObject(PyutObject):
         """
         self._links.append(link)
 
-    def getParents(self) -> List["PyutLinkedObject"]:
+    @deprecated(reason='Use the parents property')
+    def getParents(self) -> List['PyutLinkedObject']:
         """
         This is not a copy, but the original one. Any change made to it is
         directly made on the class.
@@ -62,7 +110,8 @@ class PyutLinkedObject(PyutObject):
         """
         return self._parents
 
-    def setParents(self, parents: List["PyutLinkedObject"]):
+    @deprecated(reason='Use the parents property')
+    def setParents(self, parents: List['PyutLinkedObject']):
         """
         Replace the actual parents by those given in the list.
         The methods passed are not copied, but used directly.
