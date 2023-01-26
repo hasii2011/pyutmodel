@@ -39,7 +39,7 @@ class PyutModifier:
         Returns:
             String representation.
         """
-        return self.getName()
+        return self.name
 
     def __repr__(self) -> str:
         return self.__str__()
