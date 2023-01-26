@@ -1,8 +1,10 @@
 
-from typing import List
 
 from pyutmodel.PyutField import PyutField
+from pyutmodel.PyutField import PyutFields
+
 from pyutmodel.PyutMethod import PyutMethod
+from pyutmodel.PyutMethod import PyutMethods
 
 
 class PyutClassCommon:
@@ -13,8 +15,8 @@ class PyutClassCommon:
         self._showMethods: bool = True
         self._showFields:  bool = True
 
-        self._fields:  List[PyutField]  = []
-        self._methods: List[PyutMethod] = []
+        self._fields:  PyutFields  = PyutFields([])
+        self._methods: PyutMethods = PyutMethods([])
 
     def addMethod(self, newMethod: PyutMethod):
         self._methods.append(newMethod)
@@ -46,7 +48,7 @@ class PyutClassCommon:
         self._description = description
 
     @property
-    def fields(self) -> List[PyutField]:
+    def fields(self) -> PyutFields:
         """
         This is not a copy, but the original one. Any change made to it is
         directly made on the class.
@@ -56,7 +58,7 @@ class PyutClassCommon:
         return self._fields
 
     @fields.setter
-    def fields(self, fields: List[PyutField]):
+    def fields(self, fields: PyutFields):
         """
         The fields passed are not copied, but used directly.
 
@@ -65,15 +67,18 @@ class PyutClassCommon:
         """
         self._fields = fields
 
-    def addField(self, field):
+    def addField(self, field: PyutField):
         """
         Add a field
-        @author C.Dutoit
+
+        Args:
+            field:   New field to append
+
         """
         self._fields.append(field)
 
     @property
-    def methods(self) -> List[PyutMethod]:
+    def methods(self) -> PyutMethods:
         """
         This is not a copy, but the original one. Any change made to it is
         directly made on the interface.
@@ -83,7 +88,7 @@ class PyutClassCommon:
         return self._methods
 
     @methods.setter
-    def methods(self, methods: List[PyutMethod]):
+    def methods(self, methods: PyutMethods):
         """
         Replace the actual methods by those given in the list.
         The methods passed are not copied, but used directly.

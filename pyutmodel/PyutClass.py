@@ -1,12 +1,11 @@
 
-from typing import List
-from typing import cast
 
 from deprecated import deprecated
 
 from pyutmodel.PyutClassCommon import PyutClassCommon
 from pyutmodel.PyutDisplayParameters import PyutDisplayParameters
 from pyutmodel.PyutInterface import PyutInterface
+from pyutmodel.PyutInterface import PyutInterfaces
 from pyutmodel.PyutLinkedObject import PyutLinkedObject
 from pyutmodel.PyutStereotype import PyutStereotype
 
@@ -22,7 +21,7 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
         - stereotype (`PyutStereotype`)
         - a description (`string`)
 
-    Example::
+    Example:
         myClass = PyutClass("Foo") # this will create a `Foo` class
         myClass.description = "Example class"
 
@@ -42,11 +41,9 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
         self._stereotype: PyutStereotype = PyutStereotype.NO_STEREOTYPE
 
         # Display properties
-        self._displayStereotype: bool = True
-
+        self._displayStereotype: bool                  = True
         self._displayParameters: PyutDisplayParameters = PyutDisplayParameters.UNSPECIFIED
-
-        self._interfaces:     List[PyutInterface] = []
+        self._interfaces:        PyutInterfaces        = PyutInterfaces([])
 
     @property
     def displayParameters(self) -> PyutDisplayParameters:
@@ -57,11 +54,11 @@ class PyutClass(PyutClassCommon, PyutLinkedObject):
         self._displayParameters = newValue
 
     @property
-    def interfaces(self) -> List[PyutInterface]:
+    def interfaces(self) -> PyutInterfaces:
         return self._interfaces
 
     @interfaces.setter
-    def interfaces(self, theNewInterfaces: List[PyutInterface]):
+    def interfaces(self, theNewInterfaces: PyutInterfaces):
         self._interfaces = theNewInterfaces
 
     def addInterface(self, pyutInterface: PyutInterface):

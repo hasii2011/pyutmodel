@@ -1,4 +1,7 @@
 
+from typing import List
+from typing import NewType
+
 # noinspection PyPackageRequirements
 from deprecated import deprecated
 
@@ -75,3 +78,6 @@ class PyutField(PyutParameter):
 
     def __repr__(self):
         return self.__str__()
+
+
+PyutFields     = NewType('PyutFields',  List[PyutField])

@@ -306,3 +306,6 @@ class PyutMethod(PyutObject):
             f'{self.sourceCode}'
         )
         return internalRepresentation
+
+
+PyutMethods    = NewType('PyutMethods',    List[PyutMethod])
