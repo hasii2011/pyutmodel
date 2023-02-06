@@ -2,6 +2,8 @@
 from logging import Logger
 from logging import getLogger
 
+from deprecated import deprecated
+
 from pyutmodel.PyutLink import PyutLink
 
 
@@ -27,9 +29,11 @@ class PyutSDMessage(PyutLink):
 
         self.logger.debug(f"PyutSDMessage.__init__ {srcTime}, {dstTime}")
         super().__init__(source=src, destination=dst)
-        self._message   = message
-        self._srcTime   = srcTime
-        self._dstTime   = dstTime
+        self._message: str   = message
+        self._srcTime: int   = srcTime
+        self._dstTime: int   = dstTime
+        #
+        # TODO: Why oh why oh why?
         self._oglObject = oglObject
 
     def setOglObject(self, obj):
@@ -39,34 +43,70 @@ class PyutSDMessage(PyutLink):
         """
         self._oglObject = obj
 
+    @property
+    def message(self) -> str:
+        """
+        Returns: The message as a string
+        """
+        return self._message
+
+    @message.setter
+    def message(self, newValue: str ):
+        self._message = newValue
+
+    @deprecated(reason='Use .message property')
+    def getMessage(self):
+        return self._message
+
+    @property
+    def sourceY(self) -> int:
+        """
+        Returns:  Y position on source
+        """
+        return self._srcTime
+
+    @sourceY.setter
+    def sourceY(self, newValue: int):
+        """
+        Returns:  Y position on source
+        """
+        self._srcTime = newValue
+
+    @property
+    def destinationY(self) -> int:
+        """
+        Returns: Y position on destination
+        """
+        return self._dstTime
+
+    @destinationY.setter
+    def destinationY(self, newValue: int):
+        self._dstTime = newValue
+
+    @property
+    def sourceId(self) -> int:  # ignore it because the default is None
+        return self._src.id     # type: ignore
+
+    def destinationId(self) -> int:
+        return self._dest.id      # type: ignore
+
+    @deprecated(reason='Use .sourceY property')
     def getSrcY(self):
-        """
-        Return Y position on source
-        @author C.Dutoit
-        """
         return self._srcTime
 
+    @deprecated(reason='Use .sourceY property')
+    def setSrcY(self, newValue: int):
+        self._srcTime = newValue
+
+    @deprecated(reason='Use .destinationY property')
     def getDstY(self):
-        """
-        Return Y position on destination
-        @author C.Dutoit
-        """
         return self._dstTime
 
-    def setSrcY(self):
-        """
-        Return Y position on source
-        @author C.Dutoit
-        """
-        return self._srcTime
+    @deprecated(reason='Use .destinationY property')
+    def setDstY(self, newValue: int):
+        self._dstTime = newValue
 
-    def setDstY(self):
-        """
-        Return Y position on destination
-        @author C.Dutoit
-        """
-        return self._dstTime
-
+    @deprecated(reason='Use .sourceY property')
     def getSrcTime(self):
         """
         Return time on source
@@ -75,6 +115,7 @@ class PyutSDMessage(PyutLink):
         """
         return self._srcTime
 
+    @deprecated(reason='Use .destinationY property')
     def getDstTime(self):
         """
         Return time on destination
@@ -83,6 +124,7 @@ class PyutSDMessage(PyutLink):
         """
         return self._dstTime
 
+    @deprecated(reason='Use .sourceY property')
     def setSrcTime(self, value, updateOGLObject=True):
         """
         Define time on source
@@ -93,6 +135,7 @@ class PyutSDMessage(PyutLink):
         if updateOGLObject and self._oglObject is not None:
             self._oglObject.updatePositions()
 
+    @deprecated(reason='Use .destinationY property')
     def setDstTime(self, value, updateOGLObject=True):
         """
         Define time on destination
@@ -103,6 +146,7 @@ class PyutSDMessage(PyutLink):
         if updateOGLObject and self._oglObject is not None:
             self._oglObject.updatePositions()
 
+    @deprecated(reason='Use .sourceId')
     def getSrcID(self):
         """
         TODO:  There is a problem;  Not sure this method is valid
@@ -111,6 +155,7 @@ class PyutSDMessage(PyutLink):
         """
         return self._src.getId()        # type: ignore
 
+    @deprecated(reason='Use .destinationId')
     def getDstID(self):
         """
         TODO:  There is a problem;  Not sure this method is valid
@@ -133,20 +178,8 @@ class PyutSDMessage(PyutLink):
         """
         return self._dest
 
-    def getMessage(self):
-        """
-        Return the message as a string
-        @return String : message
-        @author C.Dutoit
-        """
-        return self._message
-
+    @deprecated(reason='Use .message property')
     def setMessage(self, value):
-        """
-        Define the message
-        @param String value : value of the message
-        @author C.Dutoit
-        """
         self._message = value
 
     def setSource(self, src=None, srcTime=-1):
