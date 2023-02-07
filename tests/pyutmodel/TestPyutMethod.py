@@ -59,7 +59,6 @@ class TestPyutMethod(TestBase):
         pyutMethod.parameters = self._makeParameters()
         PyutMethod.setStringMode(DisplayMethodParameters.WITH_PARAMETERS)
 
-        # TODO:  Should pull in method name from plugin preferences
         defaultName: str = 'methodName'
         expectedRepresentation: str = f'+{defaultName}(intParam: int = 0, floatParam: float = 32.0): float'
         actualRepresentation:   str = pyutMethod.__str__()
@@ -79,6 +78,24 @@ class TestPyutMethod(TestBase):
         actualRepresentation:   str = pyutMethod.__str__()
 
         self.assertEqual(expectedRepresentation, actualRepresentation, 'Oops this does not match')
+
+    def testMethodSimpleParametersWithParameters(self):
+        simpleMethod: PyutMethod = self._pyutMethod
+
+        simpleMethod.parameters = self._makeSimpleParameters()
+        PyutMethod.setStringMode(DisplayMethodParameters.WITH_PARAMETERS)
+
+        defaultName: str = 'methodName'
+        expectedRepresentation: str = (
+            f'+{defaultName}('
+            f'{simpleMethod.parameters[0].name}, '
+            f'{simpleMethod.parameters[1].name}, '
+            f'{simpleMethod.parameters[2].name}'
+            ')'
+        )
+        actualRepresentation:   str = simpleMethod.__str__()
+
+        self.assertEqual(expectedRepresentation, actualRepresentation, 'Simple Method Simple Parameters does not match')
 
     def testStashSourceCode(self):
 
@@ -119,6 +136,17 @@ class TestPyutMethod(TestBase):
 
         return parameters
 
+    def _makeSimpleParameters(self) -> PyutParameters:
+        """
+        No types, no default values
+        """
+        intParameter:   PyutParameter  = PyutParameter(name='intParameter')
+        floatParameter: PyutParameter  = PyutParameter(name='floatParameter')
+        boolParameter:  PyutParameter  = PyutParameter(name='boolParameter')
+
+        parameters:     PyutParameters = PyutParameters([intParameter, floatParameter, boolParameter])
+
+        return parameters
 
 def suite() -> TestSuite:
 
@@ -129,6 +157,7 @@ def suite() -> TestSuite:
     testSuite.addTest(unittest.makeSuite(TestPyutMethod))
 
     return testSuite
+
 
 
 if __name__ == '__main__':

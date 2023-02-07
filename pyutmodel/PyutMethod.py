@@ -122,10 +122,27 @@ class PyutMethod(PyutObject):
 
     @property
     def parameters(self) -> PyutParameters:
+        """
+
+        Returns: A list of the parameters
+
+        """
+        """
+        Return 
+        This is not a copy, but the original one. Any change made to it is
+        directly made on the class.
+        """
         return self._parameters
 
     @parameters.setter
     def parameters(self, newParams: PyutParameters):
+        """
+        Replace the actual parameters by those in the list.
+
+        Args:
+            newParams:  The input parameters are used directly.
+
+        """
         self._parameters = newParams
 
     @property
@@ -200,24 +217,12 @@ class PyutMethod(PyutObject):
     @deprecated('Use parameters property')
     def getParams(self):
         """
-        Return a list of the params.
-        This is not a copy, but the original one. Any change made to it is
-        directly made on the class.
 
-        @since 1.0
-        @author Laurent Burgbacher <lb@alawa.ch>
         """
         return self._parameters
 
     @deprecated('Use parameters property')
     def setParams(self, params):
-        """
-        Replace the actual params by those given in the list.
-        The methods passed are not copied, but used directly.
-
-        @since 1.0
-        @author Laurent Burgbacher <lb@alawa.ch>
-        """
         self._parameters = params
 
     def addParameter(self, parameter: PyutParameter):
@@ -268,7 +273,7 @@ class PyutMethod(PyutObject):
         """
         string = f'{self._visibility}{self._name}()'
         # add the parameters
-        if str(self._returnType) != "":
+        if self._returnType.value != "":
             string = f'{string}: {self._returnType}'
         return string
 
@@ -284,8 +289,8 @@ class PyutMethod(PyutObject):
         for param in self._parameters:
             string = f'{string}{param}, '
 
-        string = string[:-2] + ")"      # remove the last "," and add a )
-        if self._returnType != "":
+        string = string[:-2] + ")"      # remove the last comma and add a trailing parenthesis
+        if self._returnType.value != "":
             string = f'{string}: {self._returnType}'
 
         return string
