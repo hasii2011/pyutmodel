@@ -57,6 +57,28 @@ class TestPyutField(TestBase):
             self.assertTrue(isinstance(pyutField.type, PyutType), 'Wrong type copied')
             self.assertTrue(isinstance(pyutField.visibility, PyutVisibilityEnum), 'Wrong visibility type copied')
 
+    def testBasicStringRepresentation(self):
+
+        basicField: PyutField = PyutField(name='basicField',
+                                          fieldType=PyutType('int'),
+                                          defaultValue='42',
+                                          visibility=PyutVisibilityEnum.PUBLIC)
+
+        expectedValue: str = '+basicField: int = 42'
+        actualValue:   str = basicField.__str__()
+
+        self.assertEqual(expectedValue, actualValue, 'Basic string representation broken')
+
+    def testNoDefaultValueStringRepresentation(self):
+
+        noDefaultValueField: PyutField = PyutField(name='basicField',
+                                                   fieldType=PyutType('int'),
+                                                   visibility=PyutVisibilityEnum.PRIVATE)
+
+        expectedValue: str = '-basicField: int'
+        actualValue:   str = noDefaultValueField.__str__()
+
+        self.assertEqual(expectedValue, actualValue, 'Basic string representation broken')
 
 def suite() -> TestSuite:
 

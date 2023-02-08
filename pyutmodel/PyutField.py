@@ -69,11 +69,10 @@ class PyutField(PyutParameter):
 
     def __str__(self):
         """
-        Get method, used to know the name and visibility.
 
-        @return string field
+        Returns:  A nice string
         """
-        # return str(self._visibility) + PyutParam.__str__(self)
+
         return f'{self._visibility}{PyutParameter.__str__(self)}'
 
     def __repr__(self):
