@@ -14,7 +14,9 @@ class PyutSDMessage(PyutLink):
 
     """
 
-    def __init__(self, message="", src=None, srcTime=0, dst=None, dstTime=0, oglObject=None):
+    # def __init__(self, message="", src=None, srcTime=0, dst=None, dstTime=0, oglObject=None):
+    def __init__(self, message="", src=None, srcTime=0, dst=None, dstTime=0):
+
         """
         TODO:  add timescale zoomer ?! and offset ?
         Args:
@@ -23,7 +25,6 @@ class PyutSDMessage(PyutLink):
             srcTime: time on the source
             dst:     where the link goes
             dstTime: time on the destination
-            oglObject: OGL parent object
         """
         self.logger: Logger = getLogger(__name__)
 
@@ -34,14 +35,14 @@ class PyutSDMessage(PyutLink):
         self._dstTime: int   = dstTime
         #
         # TODO: Why oh why oh why?
-        self._oglObject = oglObject
+        # self._oglObject = oglObject
 
-    def setOglObject(self, obj):
-        """
-        Define the ogl object
-        @author C.Dutoit
-        """
-        self._oglObject = obj
+    # def setOglObject(self, obj):
+    #     """
+    #     TODO: Fix this circular reference with Protocol:
+    #     https://pythontest.com/fix-circular-import-python-typing-protocol/
+    #     """
+    #     self._oglObject = obj
 
     @property
     def message(self) -> str:
@@ -51,7 +52,7 @@ class PyutSDMessage(PyutLink):
         return self._message
 
     @message.setter
-    def message(self, newValue: str ):
+    def message(self, newValue: str):
         self._message = newValue
 
     @deprecated(reason='Use .message property')
@@ -124,27 +125,27 @@ class PyutSDMessage(PyutLink):
         """
         return self._dstTime
 
-    @deprecated(reason='Use .sourceY property')
-    def setSrcTime(self, value, updateOGLObject=True):
-        """
-        Define time on source
-        DON'T use it, or only for saving purpose
-        @author C.Dutoit
-        """
-        self._srcTime = int(value)
-        if updateOGLObject and self._oglObject is not None:
-            self._oglObject.updatePositions()
+    # @deprecated(reason='Use .sourceY property')
+    # def setSrcTime(self, value, updateOGLObject=True):
+    #     """
+    #     Define time on source
+    #     DON'T use it, or only for saving purpose
+    #     @author C.Dutoit
+    #     """
+    #     self._srcTime = int(value)
+    #     if updateOGLObject and self._oglObject is not None:
+    #         self._oglObject.updatePositions()
 
-    @deprecated(reason='Use .destinationY property')
-    def setDstTime(self, value, updateOGLObject=True):
-        """
-        Define time on destination
-        DON'T use it, or only for saving purpose
-        @author C.Dutoit
-        """
-        self._dstTime = int(value)
-        if updateOGLObject and self._oglObject is not None:
-            self._oglObject.updatePositions()
+    # @deprecated(reason='Use .destinationY property')
+    # def setDstTime(self, value, updateOGLObject=True):
+    #     """
+    #     Define time on destination
+    #     DON'T use it, or only for saving purpose
+    #     @author C.Dutoit
+    #     """
+    #     self._dstTime = int(value)
+    #     if updateOGLObject and self._oglObject is not None:
+    #         self._oglObject.updatePositions()
 
     @deprecated(reason='Use .sourceId')
     def getSrcID(self):
@@ -184,18 +185,16 @@ class PyutSDMessage(PyutLink):
 
     def setSource(self, src=None, srcTime=-1):
         """
-
         Args:
             src:    Source object
             srcTime: ???
-
         """
         if src is not None:
-            # PyutLink.setSource(self, src)
             super().setSource(src)
         if srcTime != -1:
             self.logger.debug(f"PyutSDMessage - Setting srcTime to: {srcTime}")
-            self.setSrcTime(srcTime)
+            # self.setSrcTime(srcTime)
+            self.sourceY = srcTime
 
     def setDestination(self, dst=None, dstTime=-1):
         """
@@ -209,7 +208,8 @@ class PyutSDMessage(PyutLink):
             PyutLink.setDestination(self, dst)
         if dstTime != -1:
             self.logger.debug(f"Setting dstTime to {dstTime}")
-            self.setDstTime(dstTime)
+            # self.setDstTime(dstTime)
+            self.destinationY = dstTime
 
     def __str__(self):
         """

@@ -1,12 +1,12 @@
 wheel==0.38.4
-setuptools==66.1.1
+setuptools==67.6.0
 twine==4.0.2
 build==0.10.0
 html-testRunner~=1.2.1
 pkgversions==0.2.2
-mypy==0.991
-mypy-extensions~= 0.4.3
-types-Deprecated==1.2.9
-types-setuptools==65.7.0.3
-typing_extensions==4.4.0
+mypy==1.1.1
+mypy-extensions==1.0.0
+types-Deprecated==1.2.9.1
+types-setuptools==67.6.0.0
+typing_extensions==4.5.0
 Deprecated~=1.2.13
