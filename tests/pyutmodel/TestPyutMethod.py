@@ -20,16 +20,8 @@ from tests.TestBase import TestBase
 class TestPyutMethod(TestBase):
     """
     """
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutMethod.clsLogger = getLogger(__name__)
-
     def setUp(self):
-        self.logger:      Logger     = TestPyutMethod.clsLogger
-        # self._pyutMethod: PyutMethod = PyutMethod(name=PyutPreferences().methodName)
+        super().setUp()
         self._pyutMethod: PyutMethod = PyutMethod(name='methodName')
 
     def tearDown(self):

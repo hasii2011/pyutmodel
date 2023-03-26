@@ -26,6 +26,10 @@
             "level": "INFO",
             "propagate": "False"
         },
+        "hasiihelper.UnitTestBase": {
+            "level":     "WARNING",
+            "propagate": "False"
+        },
         "pyutmodel": {
             "level":     "WARNING",
             "propagate": "False"

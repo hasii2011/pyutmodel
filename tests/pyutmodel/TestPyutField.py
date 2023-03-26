@@ -1,11 +1,9 @@
 
-from typing import cast
 from typing import List
 
-from logging import Logger
-from logging import getLogger
 
 from unittest import TestSuite
+
 from unittest import main as unitTestMain
 
 from copy import deepcopy
@@ -19,8 +17,6 @@ from tests.TestBase import TestBase
 
 class TestPyutField(TestBase):
 
-    clsLogger: Logger = cast(Logger, None)
-
     fieldNames:        List[str]      = ['field1', 'field2', 'field3']
     fieldTypes:        List[PyutType] = [PyutType(value='int'),
                                          PyutType(value='bool'),
@@ -30,13 +26,8 @@ class TestPyutField(TestBase):
                                                    PyutVisibilityEnum.PUBLIC,
                                                    PyutVisibilityEnum.PROTECTED]
 
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutField.clsLogger = getLogger(__name__)
-
     def setUp(self):
-        self.logger: Logger = TestPyutField.clsLogger
+        super().setUp()
 
     def testDeepCopyList(self):
 
@@ -79,6 +70,7 @@ class TestPyutField(TestBase):
         actualValue:   str = noDefaultValueField.__str__()
 
         self.assertEqual(expectedValue, actualValue, 'Basic string representation broken')
+
 
 def suite() -> TestSuite:
 

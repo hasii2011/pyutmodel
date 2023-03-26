@@ -1,9 +1,4 @@
 
-from typing import cast
-
-from logging import Logger
-from logging import getLogger
-
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
@@ -12,18 +7,11 @@ from pyutmodel.PyutType import PyutType
 from tests.TestBase import TestBase
 
 
-class TestTemplate(TestBase):
+class TestPyutParameter(TestBase):
     """
     """
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestTemplate.clsLogger = getLogger(__name__)
-
     def setUp(self):
-        self.logger: Logger = TestTemplate.clsLogger
+        super().setUp()
 
     def tearDown(self):
         pass
@@ -60,7 +48,7 @@ def suite() -> TestSuite:
 
     testSuite: TestSuite = TestSuite()
     # noinspection PyUnresolvedReferences
-    testSuite.addTest(unittest.makeSuite(TestTemplate))
+    testSuite.addTest(unittest.makeSuite(TestPyutParameter))
 
     return testSuite
 

@@ -1,9 +1,4 @@
 
-from typing import cast
-
-from logging import Logger
-from logging import getLogger
-
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
@@ -15,21 +10,13 @@ from tests.TestBase import TestBase
 class TestPyutLink(TestBase):
     """
     """
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutLink.clsLogger = getLogger(__name__)
-
-        import warnings
+    def setUp(self):
+        super().setUp()
+        # import warnings
         # To ignore this warning:
         # DeprecationWarning
         # Since this is legacy stuff;  May go away
-        warnings.simplefilter("ignore", category=DeprecationWarning)
-
-    def setUp(self):
-        self.logger: Logger = TestPyutLink.clsLogger
+        # warnings.simplefilter("ignore", category=DeprecationWarning)
 
     def tearDown(self):
         pass

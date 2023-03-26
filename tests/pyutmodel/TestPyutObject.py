@@ -1,9 +1,4 @@
 
-from typing import cast
-
-from logging import Logger
-from logging import getLogger
-
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
@@ -14,17 +9,9 @@ from tests.TestBase import TestBase
 
 class TestPyutObject(TestBase):
     """
-
     """
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutObject.clsLogger = getLogger(__name__)
-
     def setUp(self):
-        self.logger: Logger = TestPyutObject.clsLogger
+        super().setUp()
         PyutObject.nextId = 0
 
     def tearDown(self):

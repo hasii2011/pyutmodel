@@ -1,9 +1,5 @@
 
-from typing import cast
 from typing import List
-
-from logging import Logger
-from logging import getLogger
 
 from unittest import TestSuite
 
@@ -16,15 +12,8 @@ from tests.TestBase import TestBase
 class TestPyutVisibilityEnum(TestBase):
     """
     """
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutVisibilityEnum.clsLogger = getLogger(__name__)
-
     def setUp(self):
-        self.logger: Logger = TestPyutVisibilityEnum.clsLogger
+        super().setUp()
 
     def tearDown(self):
         pass

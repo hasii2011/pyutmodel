@@ -1,9 +1,6 @@
 
 from typing import cast
 
-from logging import Logger
-from logging import getLogger
-
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
@@ -14,15 +11,8 @@ from tests.TestBase import TestBase
 class TestPyutStereotype(TestBase):
     """
     """
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutStereotype.clsLogger = getLogger(__name__)
-
     def setUp(self):
-        self.logger: Logger = TestPyutStereotype.clsLogger
+        super().setUp()
 
     def tearDown(self):
         pass

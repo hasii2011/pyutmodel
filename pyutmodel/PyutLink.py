@@ -84,7 +84,7 @@ class PyutLink(PyutObject):
         self._sourceCardinality = cardSrc
 
     @property
-    def destinationCardinality(self):
+    def destinationCardinality(self) -> str:
         """
         Return a string representing cardinality destination.
 

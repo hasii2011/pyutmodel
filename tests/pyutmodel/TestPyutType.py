@@ -1,9 +1,5 @@
 
-from typing import cast
 from typing import List
-
-from logging import Logger
-from logging import getLogger
 
 from unittest import main as unitTestMain
 from unittest import TestSuite
@@ -15,18 +11,12 @@ from tests.TestBase import TestBase
 
 
 class TestPyutType(TestBase):
-    clsLogger: Logger = cast(Logger, None)
-
-    @classmethod
-    def setUpClass(cls):
-        TestBase.setUpLogging()
-        TestPyutType.clsLogger = getLogger(__name__)
 
     def setUp(self):
+        super().setUp()
         self.strings = [
             "salut", "hello", "ca va ?"
         ]
-        self.logger: Logger = TestPyutType.clsLogger
 
     def testPyutTypeReadOnly(self):
         """Test PyutType class"""
