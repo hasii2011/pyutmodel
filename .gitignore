@@ -5,7 +5,7 @@ __pycache__/
 build/
 dist/
 pyutmodel.egg-info/
-/pyenv-3.9.1/
+/pyenv-3.11.5/
 /pyenv-3.10.6/
 .envrc
 .python-version
