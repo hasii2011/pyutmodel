@@ -10,7 +10,7 @@ LICENSE = (HERE / 'LICENSE').read_text()
 
 setup(
     name="pyutmodel",
-    version="1.4.4",
+    version="1.5.0",
     author_email='Humberto.A.Sanchez.II@gmail.com',
     maintainer='Humberto A. Sanchez II',
     maintainer_email='humberto.a.sanchez.ii@gmail.com',
@@ -24,5 +24,5 @@ setup(
     package_data={
         'pyutmodel': ['py.typed'],
     },
-    install_requires=['hasiihelper~=0.2.1', 'Deprecated==1.2.14'],
+    install_requires=['codeallybasic==0.5.2', 'Deprecated==1.2.14'],
 )
