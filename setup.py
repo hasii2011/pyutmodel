@@ -1,5 +1,9 @@
+
 import pathlib
+
 from setuptools import setup
+
+from pyutmodel import __version__
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -10,7 +14,7 @@ LICENSE = (HERE / 'LICENSE').read_text()
 
 setup(
     name="pyutmodel",
-    version="1.5.0",
+    version=__version__,
     author_email='Humberto.A.Sanchez.II@gmail.com',
     maintainer='Humberto A. Sanchez II',
     maintainer_email='humberto.a.sanchez.ii@gmail.com',
