@@ -8,7 +8,7 @@ mypy==1.5.1
 mypy-extensions==1.0.0
 types-Deprecated==1.2.9.3
 types-setuptools==68.2.0.0
-typing_extensions==4.7.1
+typing_extensions==4.8.0
 Deprecated==1.2.14
 
 buildlackey==1.3.3
