@@ -13,11 +13,11 @@ This project uses [buildlackey](https://github.com/hasii2011/buildlackey) for da
 
 ___
 
-Written by <a href="mailto:email@humberto.a.sanchez.ii@gmail.com?subject=Hello Humberto">Humberto A. Sanchez II</a>  (C) 2023
-
 ## Note
 For all kind of problems, requests, enhancements, bug reports, etc.,
 please drop me an e-mail.
+Written by <a href="mailto:email@humberto.a.sanchez.ii@gmail.com?subject=Hello Humberto">Humberto A. Sanchez II</a>  (C) 2023
+
 
 
 ![Humberto's Modified Logo](https://raw.githubusercontent.com/wiki/hasii2011/gittodoistclone/images/SillyGitHub.png)

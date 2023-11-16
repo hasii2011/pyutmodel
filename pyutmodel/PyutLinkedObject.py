@@ -9,7 +9,6 @@ from pyutmodel.PyutLink import PyutLinks
 from pyutmodel.PyutObject import PyutObject
 
 
-
 class PyutLinkedObject(PyutObject):
     """
     An object which can be connected to other one.
@@ -17,7 +16,7 @@ class PyutLinkedObject(PyutObject):
     classes that may be interconnected (classes for examples) should inherit
     this class to have all links support.
     """
-    def __init__(self, name: str=""):
+    def __init__(self, name: str = ""):
         """
 
         Args:

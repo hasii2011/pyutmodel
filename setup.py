@@ -15,6 +15,7 @@ LICENSE = (HERE / 'LICENSE').read_text()
 setup(
     name="pyutmodel",
     version=__version__,
+    author='Humberto A. Sanchez II',
     author_email='Humberto.A.Sanchez.II@gmail.com',
     maintainer='Humberto A. Sanchez II',
     maintainer_email='humberto.a.sanchez.ii@gmail.com',
