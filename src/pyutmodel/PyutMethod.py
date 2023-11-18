@@ -254,7 +254,7 @@ class PyutMethod(PyutObject):
 
         """
         pyutType: PyutType = returnType
-        if type(returnType) is str:
+        if isinstance(returnType, str):
             pyutType = PyutType(returnType)
             self.logger.warning(f'Setting return type as string is deprecated.  use PyutType')
 

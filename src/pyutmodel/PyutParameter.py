@@ -41,7 +41,7 @@ class PyutParameter(PyutObject):
         Args:
             theType:
         """
-        if type(theType) is str:
+        if isinstance(theType, str):
             self.logger.warning(f'Setting return type as string is deprecated.  use PyutType')
             theType = PyutType(theType)
 
@@ -62,7 +62,7 @@ class PyutParameter(PyutObject):
 
     @type.setter
     def type(self, theType: PyutType):
-        if type(theType) is str:
+        if isinstance(theType, str):
             self.logger.warning(f'Setting return type as string is deprecated.  use PyutType')
             theType = PyutType(theType)
 

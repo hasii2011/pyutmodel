@@ -160,7 +160,7 @@ class PyutLink(PyutObject):
         Args:
               linkType : Type of the link
         """
-        if type(linkType) is int:
+        if isinstance(linkType, int):
             try:
                 self._type = PyutLinkType(linkType)
             except (ValueError, Exception) as e:
